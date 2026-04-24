@@ -6,7 +6,7 @@
 
   <!-- ── PRIMARY SEO ── -->
   <title>Vacuum Tattoo Studio | Studio di Tatuaggi Professionale a Cartura, Padova</title>
-  <meta name="description" content="Vacuum Tattoo Studio a Cartura (PD): tatuaggi professionali dal 2003. Specializzati in realistico, blackwork, giapponese, geometrico, watercolor e minimalist. Prenota una consulenza gratuita.">
+  <meta name="description" content="Vacuum Tattoo Studio a Cartura (PD): tatuaggi professionali da oltre 20 anni. Specializzati in realistico, blackwork, giapponese, geometrico, watercolor e minimalist. Prenota una consulenza gratuita.">
   <meta name="keywords" content="tattoo, tatuaggi, studio tatuaggi, vacuum tattoo, tatuatori professionali, tatuaggio realistico, blackwork, tatuaggio giapponese, tattoo shop, tatuaggi Padova, tatuaggi Cartura, tattoo Padova, studio tatuaggi Padova">
   <meta name="author" content="Vacuum Tattoo Studio">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -306,7 +306,6 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      /* Touch-friendly min height */
       min-height: 48px;
     }
     .btn-primary {
@@ -417,7 +416,6 @@
       width: 44px; height: 44px;
       position: relative;
       padding: 12px 7px;
-      /* Accessible touch target 44x44 */
     }
     .mobile-menu-btn span {
       display: block;
@@ -468,7 +466,6 @@
       position: absolute; top: 1.25rem; right: 1.25rem;
       background: none; border: none; color: var(--fg);
       font-size: 1.5rem; cursor: pointer;
-      /* Touch target */
       width: 44px; height: 44px;
       display: flex; align-items: center; justify-content: center;
     }
@@ -476,7 +473,7 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      min-height: 100dvh; /* dynamic viewport for mobile browsers */
+      min-height: 100dvh;
       display: flex; align-items: center;
       position: relative;
       overflow: hidden;
@@ -761,24 +758,20 @@
       font-size: 0.875rem; font-weight: 300;
     }
 
-    /* Mobile: 2 cols */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.35rem;
     }
-    /* Mobile: no spanning to avoid layout weirdness on tiny screens */
     @media (max-width: 479px) {
       .gallery-item:nth-child(1) { grid-row: unset; }
       .gallery-item:nth-child(5) { grid-column: unset; }
     }
-    /* Small+ mobile: restore spans */
     @media (min-width: 480px) {
       .gallery-grid { gap: 0.5rem; }
       .gallery-item:nth-child(1) { grid-row: span 2; }
       .gallery-item:nth-child(5) { grid-column: span 2; }
     }
-    /* Desktop: 4 cols */
     @media (min-width: 768px) {
       .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
       .gallery-item:nth-child(5) { grid-column: span 1; }
@@ -867,7 +860,6 @@
       color: rgba(240,236,228,0.5);
       cursor: pointer;
       transition: color 0.3s;
-      /* Touch target */
       min-width: 60px; min-height: 44px;
       display: flex; align-items: center;
     }
@@ -955,7 +947,6 @@
       font-size: 0.75rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: rgba(240,236,228,0.4);
       transition: color 0.3s;
-      /* Touch target */
       min-height: 44px;
     }
     @media (hover: hover) {
@@ -1024,7 +1015,6 @@
     @media (hover: hover) {
       .info-item a:hover { color: var(--accent); }
     }
-    /* Touch-friendly phone/email links */
     .info-item a[href^="tel"],
     .info-item a[href^="mailto"] {
       display: inline-block;
@@ -1056,6 +1046,59 @@
     .map-footer span {
       font-size: 0.7rem; letter-spacing: 0.1em;
       text-transform: uppercase; color: rgba(240,236,228,0.35);
+    }
+
+    /* ── WHATSAPP ── */
+    .wa-float {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      z-index: 900;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: waPulse 2.5s infinite;
+    }
+    @media (hover: hover) {
+      .wa-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+        animation: none;
+      }
+    }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.35); }
+      50%       { box-shadow: 0 4px 32px rgba(37,211,102,0.6); }
+    }
+    .wa-contact-block {
+      display: flex; align-items: center; gap: 1rem;
+      margin-top: 1.75rem;
+      padding: 1.25rem;
+      background: rgba(37,211,102,0.06);
+      border: 1px solid rgba(37,211,102,0.2);
+      transition: background 0.3s, border-color 0.3s;
+      text-decoration: none;
+    }
+    @media (hover: hover) {
+      .wa-contact-block:hover {
+        background: rgba(37,211,102,0.1);
+        border-color: rgba(37,211,102,0.35);
+      }
+    }
+    .wa-contact-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wa-contact-text h4 {
+      font-family: var(--font-body);
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #25D366;
+      margin-bottom: 0.2rem; font-weight: 500;
+    }
+    .wa-contact-text p {
+      font-size: 0.82rem; color: rgba(240,236,228,0.55); font-weight: 300;
     }
 
     /* ── FOOTER ── */
@@ -1092,7 +1135,6 @@
       font-size: 0.8rem; letter-spacing: 0.1em;
       text-transform: uppercase; color: rgba(240,236,228,0.35);
       transition: color 0.3s;
-      /* Touch target */
       display: inline-block; min-height: 40px; line-height: 40px;
     }
     @media (hover: hover) {
@@ -1144,9 +1186,14 @@
 </head>
 
 <body>
-  <!-- Custom Cursor (only rendered on fine pointer devices via CSS/JS) -->
+  <!-- Custom Cursor -->
   <div class="cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── WHATSAPP FLOAT ── -->
+  <a href="https://wa.me/393669758870?text=Ciao%20Vacuum%20Tattoo%2C%20vorrei%20prenotare%20una%20consulenza%20gratuita%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Contattaci su WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <!-- ── HEADER ── -->
   <header id="header" role="banner">
@@ -1162,7 +1209,7 @@
           <li><a href="#gallery">Galleria</a></li>
           <li><a href="#artists">Artisti</a></li>
           <li><a href="#contact">Contatti</a></li>
-          <li><a href="#contact" class="btn-primary"><span>Prenota</span></a></li>
+          <li><a href="https://wa.me/393669758870?text=Ciao!%20vorrei%20prenotare%20una%20consulenza%20gratuita%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn-primary"><span>Prenota</span></a></li>
         </ul>
       </nav>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -1191,16 +1238,20 @@
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-overlay-bottom" aria-hidden="true"></div>
     <div class="container hero-content">
-      <p class="hero-eyebrow">Cartura, Padova · Est. 2003</p>
+      <p class="hero-eyebrow">Cartura, Padova · Est.</p>
       <h1>
         <span class="line">ARTE</span>
         <span class="line">CHE LASCIA</span>
         <em>il segno</em>
       </h1>
       <p class="hero-sub">Benvenuti da Vacuum Tattoo Studio, dove trasformiamo le tue idee in arte permanente. Il tuo corpo è la nostra tela, i tuoi sogni la nostra ispirazione.</p>
+      <!-- MODIFICA 1: Prenota (WhatsApp) è ora il bottone primario, Esplora è secondario -->
       <div class="hero-cta">
-        <a href="#gallery" class="btn-primary"><span>Esplora i Nostri Lavori</span></a>
-        <a href="#contact" class="btn-secondary">Prenota una Consulenza</a>
+        <a href="https://wa.me/393669758870?text=Ciao!%20vorrei%20prenotare%20una%20consulenza%20gratuita%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;position:relative;z-index:1" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>Prenota una Consulenza</span>
+        </a>
+        <a href="#gallery" class="btn-secondary">Esplora i Nostri Lavori</a>
       </div>
     </div>
     <div class="hero-counter" aria-hidden="true">
@@ -1375,17 +1426,6 @@
             </div>
           </div>
         </div>
-        <div class="gallery-item reveal reveal-delay-4" data-category="watercolor" role="listitem" tabindex="0" aria-label="Tatuaggio Watercolor - clicca per ingrandire">
-          <img src="tatuaggio8.jpg" alt="Tatuaggio watercolor acquerello colorato" width="400" height="300" loading="lazy">
-          <div class="gallery-overlay" aria-hidden="true">
-            <div class="gallery-overlay-content">
-              <span class="gallery-tag">Watercolor</span>
-              <div class="gallery-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <!-- Lightbox -->
@@ -1428,22 +1468,22 @@
 
         <article class="artist-card reveal reveal-delay-2" itemscope itemtype="https://schema.org/Person">
           <div class="artist-img-wrap">
-            <img src="tatt.jpg" alt="Tattoo Artist di Vacuum Tattoo Studio" width="400" height="533" loading="lazy" itemprop="image">
+            <img src="" alt="Lorenzo" width="400" height="533" loading="lazy" itemprop="image">
             <div class="artist-number" aria-hidden="true">02</div>
           </div>
           <div class="artist-body">
             <p class="artist-role" itemprop="jobTitle">Tattoo Artist</p>
-            <h3 itemprop="name">X X</h3>
+            <h3 itemprop="name">Giacomello Lorenzo</h3>
             <p class="artist-spec">Blackwork · Geometrico</p>
             <div class="artist-divider" aria-hidden="true"></div>
-            <p class="artist-bio" itemprop="description">X è conosciuto per il suo stile unico che fonde elementi geometrici con tecniche di blackwork. I suoi tatuaggi si distinguono per le linee pulite e i contrasti intensi.</p>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="instagram-link">
+            <p class="artist-bio" itemprop="description">Lorenzo è conosciuto per il suo stile unico che fonde elementi geometrici con tecniche di blackwork. I suoi tatuaggi si distinguono per le linee pulite e i contrasti intensi.</p>
+            <a href="https://www.instagram.com/haze.412/" target="_blank" rel="noopener noreferrer" class="instagram-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
               </svg>
-              Segui su Instagram
+              @haze.412
             </a>
           </div>
         </article>
@@ -1471,7 +1511,10 @@
                 <h3>Orari di apertura</h3>
                 <p>Lun: 10:30–12:30 / 15:30–19:30</p>
                 <p>Mar: 15:30–19:30</p>
-                <p>Mer–Sab: 10:30–12:30 / 15:30–19:30</p>
+                <p>Mer: 10:30–12:30 / 15:30–19:30</p>
+                <p>Gio: 10:30–12:30 / 15:30–19:30</p>
+                <p>Ven: 10:30–12:30 / 15:30–19:30</p>
+                <p>Sab: 10:30–12:30 / 15:30–19:30</p>
                 <p>Dom: Chiuso</p>
               </div>
             </div>
@@ -1480,7 +1523,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18A2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.57 2 2 0 0 1-.45 2L8 10a16 16 0 0 0 6 6l.71-.71a2 2 0 0 1 2-.45 12.05 12.05 0 0 0 2.57.57A2 2 0 0 1 22 19z"/></svg>
               </div>
               <div>
-                <h3>Telefono</h3>
+                <h3>Telefono / WhatsApp</h3>
                 <p><a href="tel:+393669758870" itemprop="telephone">+39 366 975 8870</a></p>
               </div>
             </div>
@@ -1509,6 +1552,16 @@
               </div>
             </div>
           </div>
+          <!-- MODIFICA 3: Blocco WhatsApp nella sezione contatti -->
+          <a href="https://wa.me/393669758870?text=Ciao%20Vacuum%20Tattoo%2C%20vorrei%20prenotare%20una%20consulenza%20gratuita%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="wa-contact-block" aria-label="Prenota su WhatsApp">
+            <div class="wa-contact-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="wa-contact-text">
+              <h4>Prenota su WhatsApp</h4>
+              <p>Clicca qui per avviare una chat diretta — risponderemo al più presto</p>
+            </div>
+          </a>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="map-wrap">
@@ -1640,7 +1693,6 @@
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMenu);
     });
-    // Chiudi con Escape
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
     });
@@ -1708,7 +1760,6 @@
         const img = item.querySelector('img');
         openLightbox(img.src, img.alt);
       });
-      // Keyboard accessibility
       item.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
